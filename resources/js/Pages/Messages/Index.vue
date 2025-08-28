@@ -19,7 +19,7 @@ const markRead = (id) => {
         </div>
 
         <div class="grid gap-4">
-            <div v-for="m in props.messages" :key="m.id" class="rounded border p-4">
+            <div v-for="m in props.messages.data" :key="m.id" class="rounded border p-4">
                 <div class="flex items-center justify-between">
                     <div>
                         <div class="font-medium">{{ m.name }} <span class="text-gray-500">&lt;{{ m.email }}&gt;</span></div>
@@ -42,6 +42,34 @@ const markRead = (id) => {
                     </div>
                 </div>
                 <p class="mt-3 whitespace-pre-line">{{ m.message }}</p>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-6">
+            <div class="flex-1 text-left">
+                <Link
+                    v-if="props.messages.prev_page_url"
+                    :href="props.messages.prev_page_url"
+                    class="px-3 py-1 border rounded"
+                    preserve-state
+                    preserve-scroll
+                >
+                    Vorige
+                </Link>
+            </div>
+            <div class="flex-2 text-center">
+                Resultaten {{ props.messages.from }} tot {{ props.messages.to }} van {{ props.messages.total }} worden weergegeven
+            </div>
+            <div class="flex-1 text-right">
+                <Link
+                    v-if="props.messages.next_page_url"
+                    :href="props.messages.next_page_url"
+                    class="px-3 py-1 border rounded"
+                    preserve-state
+                    preserve-scroll
+                >
+                    Volgende
+                </Link>
             </div>
         </div>
     </div>
