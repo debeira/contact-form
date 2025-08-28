@@ -14,14 +14,22 @@ const markRead = (id) => {
     <div class="max-w-5xl mx-auto p-6">
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-semibold">Inzendingen</h1>
-            <Link
-                :href="route('logout')"
-                method="post"
-                as="button"
-                class="rounded bg-red-600 text-white px-4 py-2 hover:bg-red-700"
-            >
-                Uitloggen
-            </Link>
+            <div class="flex gap-4">
+                <Link
+                    :href="route('contact.index')"
+                    class="rounded border border-blue-600 px-4 py-2 text-blue-600 hover:border-blue-700 hover:text-blue-700"
+                >
+                    Ga naar Contact Formulier
+                </Link>
+                <Link
+                    :href="route('logout')"
+                    method="post"
+                    as="button"
+                    class="rounded bg-red-600 text-white px-4 py-2 hover:bg-red-700"
+                >
+                    Uitloggen
+                </Link>
+            </div>
         </div>
 
         <div v-if="$page.props.flash?.message" class="mb-4 p-3 rounded bg-green-100">

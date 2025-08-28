@@ -1,5 +1,5 @@
 <script setup>
-import {useForm} from '@inertiajs/vue3';
+import {Link, useForm} from '@inertiajs/vue3';
 import TextInput from "../../Components/TextInput.vue";
 import TextArea from "../../Components/TextArea.vue";
 
@@ -44,13 +44,22 @@ const submit = () => {
                 @clear="form.clearErrors('message')"
             />
 
-            <button
-                type="submit"
-                :disabled="form.processing"
-                class="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
-            >
-                Verstuur
-            </button>
+            <div class="flex items-center justify-between">
+                <button
+                    type="submit"
+                    :disabled="form.processing"
+                    class="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+                >
+                    Verstuur
+                </button>
+
+                <Link v-if="$page.props.auth.user"
+                      :href="route('messages.index')"
+                      class="rounded border border-blue-600 px-4 py-2 text-blue-600 hover:border-blue-700 hover:text-blue-700"
+                >
+                    Ga naar inzendingen
+                </Link>
+            </div>
         </form>
     </div>
 </template>
