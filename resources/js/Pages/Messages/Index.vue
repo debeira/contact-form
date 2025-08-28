@@ -1,5 +1,5 @@
 <script setup>
-import { Link, router } from '@inertiajs/vue3';
+import {Link, router} from '@inertiajs/vue3';
 
 const props = defineProps({
     messages: Object, // paginator
@@ -12,7 +12,17 @@ const markRead = (id) => {
 
 <template>
     <div class="max-w-5xl mx-auto p-6">
-        <h1 class="text-2xl font-semibold mb-6">Inzendingen</h1>
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-2xl font-semibold">Inzendingen</h1>
+            <Link
+                :href="route('logout')"
+                method="post"
+                as="button"
+                class="rounded bg-red-600 text-white px-4 py-2 hover:bg-red-700"
+            >
+                Uitloggen
+            </Link>
+        </div>
 
         <div v-if="$page.props.flash?.message" class="mb-4 p-3 rounded bg-green-100">
             {{ $page.props.flash.message }}
@@ -22,7 +32,8 @@ const markRead = (id) => {
             <div v-for="m in props.messages.data" :key="m.id" class="rounded border p-4">
                 <div class="flex items-center justify-between">
                     <div>
-                        <div class="font-medium">{{ m.name }} <span class="text-gray-500">&lt;{{ m.email }}&gt;</span></div>
+                        <div class="font-medium">{{ m.name }} <span class="text-gray-500">&lt;{{ m.email }}&gt;</span>
+                        </div>
                         <div class="text-xs text-gray-500">Verzonden: {{ m.created_at }}</div>
                     </div>
                     <div class="flex items-center gap-2">
@@ -58,7 +69,8 @@ const markRead = (id) => {
                 </Link>
             </div>
             <div class="flex-2 text-center">
-                Resultaten {{ props.messages.from }} tot {{ props.messages.to }} van {{ props.messages.total }} worden weergegeven
+                Resultaten {{ props.messages.from }} tot {{ props.messages.to }} van {{ props.messages.total }} worden
+                weergegeven
             </div>
             <div class="flex-1 text-right">
                 <Link
