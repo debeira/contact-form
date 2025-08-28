@@ -1,5 +1,5 @@
 <script setup>
-import {Link, router} from '@inertiajs/vue3';
+import {Head, Link, router} from '@inertiajs/vue3';
 
 const props = defineProps({
     messages: Object, // paginator
@@ -11,6 +11,8 @@ const markRead = (id) => {
 </script>
 
 <template>
+    <Head title="| Inzendingen"></Head>
+
     <div class="max-w-5xl mx-auto p-6">
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-semibold">Inzendingen</h1>

@@ -1,5 +1,5 @@
 <script setup>
-import {useForm} from '@inertiajs/vue3'
+import {Head, useForm} from '@inertiajs/vue3'
 import TextInput from "../../Components/TextInput.vue";
 import {Link} from "@inertiajs/vue3";
 
@@ -12,6 +12,7 @@ const submit = () => form.post('/login')
 </script>
 
 <template>
+    <Head title="| Login"></Head>
     <div class="max-w-md mx-auto p-6">
         <h1 class="text-2xl font-semibold mb-4">Login</h1>
 

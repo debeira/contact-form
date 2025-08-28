@@ -1,5 +1,5 @@
 <script setup>
-import {Link, useForm} from '@inertiajs/vue3';
+import {Head, useForm} from '@inertiajs/vue3';
 import TextInput from "../../Components/TextInput.vue";
 import TextArea from "../../Components/TextArea.vue";
 
@@ -16,6 +16,8 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="| Contact form"></Head>
+
     <div class="max-w-xl mx-auto p-6">
         <h1 class="text-2xl font-semibold mb-4">Contact</h1>
 
