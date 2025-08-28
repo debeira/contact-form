@@ -1,5 +1,7 @@
 <script setup>
 import {useForm} from '@inertiajs/vue3';
+import TextInput from "../../Components/TextInput.vue";
+import TextArea from "../../Components/TextArea.vue";
 
 const form = useForm({
     name: '',
@@ -22,35 +24,9 @@ const submit = () => {
         </div>
 
         <form @submit.prevent="submit" class="space-y-4">
-            <div>
-                <label class="block text-sm font-medium mb-1">Naam</label>
-                <input
-                    v-model="form.name"
-                    type="text"
-                    class="w-full rounded border p-2"
-                />
-                <div v-if="form.errors.name" class="text-red-600 text-sm mt-1">{{ form.errors.name }}</div>
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium mb-1">E-mail</label>
-                <input
-                    v-model="form.email"
-                    type="email"
-                    class="w-full rounded border p-2"
-                />
-                <div v-if="form.errors.email" class="text-red-600 text-sm mt-1">{{ form.errors.email }}</div>
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium mb-1">Bericht</label>
-                <textarea
-                    v-model="form.message"
-                    rows="6"
-                    class="w-full rounded border p-2"
-                />
-                <div v-if="form.errors.message" class="text-red-600 text-sm mt-1">{{ form.errors.message }}</div>
-            </div>
+            <TextInput name="Naam" v-model="form.name" :message="form.errors.name" />
+            <TextInput name="E-mail" v-model="form.email" type="email" :message="form.errors.email" />
+            <TextArea name="Bericht" v-model="form.message" :message="form.errors.message" />
 
             <button
                 type="submit"
