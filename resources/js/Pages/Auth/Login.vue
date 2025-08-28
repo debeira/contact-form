@@ -15,8 +15,20 @@ const submit = () => form.post('/login')
         <h1 class="text-2xl font-semibold mb-4">Login</h1>
 
         <form @submit.prevent="submit" class="space-y-4">
-            <TextInput name="E-mail" type="email" v-model="form.email" :message="form.errors.email" />
-            <TextInput name="Wachtwoord" type="password" v-model="form.password" :message="form.errors.password" />
+            <TextInput
+                name="E-mail"
+                type="email"
+                v-model="form.email"
+                :message="form.errors.email"
+                @clear="form.clearErrors('email')"
+            />
+            <TextInput
+                name="Wachtwoord"
+                type="password"
+                v-model="form.password"
+                :message="form.errors.password"
+                @clear="form.clearErrors('password')"
+            />
 
             <button
                 type="submit"

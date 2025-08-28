@@ -24,9 +24,25 @@ const submit = () => {
         </div>
 
         <form @submit.prevent="submit" class="space-y-4">
-            <TextInput name="Naam" v-model="form.name" :message="form.errors.name" />
-            <TextInput name="E-mail" v-model="form.email" type="email" :message="form.errors.email" />
-            <TextArea name="Bericht" v-model="form.message" :message="form.errors.message" />
+            <TextInput
+                name="Naam"
+                v-model="form.name"
+                :message="form.errors.name"
+                @clear="form.clearErrors('name')"
+            />
+            <TextInput
+                name="E-mail"
+                v-model="form.email"
+                type="email"
+                :message="form.errors.email"
+                @clear="form.clearErrors('email')"
+            />
+            <TextArea
+                name="Bericht"
+                v-model="form.message"
+                :message="form.errors.message"
+                @clear="form.clearErrors('message')"
+            />
 
             <button
                 type="submit"
