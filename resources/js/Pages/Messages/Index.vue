@@ -61,7 +61,7 @@ const markRead = (id) => {
                 <Link
                     v-if="props.messages.prev_page_url"
                     :href="props.messages.prev_page_url"
-                    class="px-3 py-1 border rounded"
+                    class="px-4 py-2 border rounded"
                     preserve-state
                     preserve-scroll
                 >
@@ -76,7 +76,7 @@ const markRead = (id) => {
                 <Link
                     v-if="props.messages.next_page_url"
                     :href="props.messages.next_page_url"
-                    class="px-3 py-1 border rounded"
+                    class="px-4 py-2 border rounded"
                     preserve-state
                     preserve-scroll
                 >

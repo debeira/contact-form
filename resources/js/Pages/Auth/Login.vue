@@ -1,6 +1,7 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3'
+import {useForm} from '@inertiajs/vue3'
 import TextInput from "../../Components/TextInput.vue";
+import {Link} from "@inertiajs/vue3";
 
 const form = useForm({
     email: '',
@@ -30,13 +31,22 @@ const submit = () => form.post('/login')
                 @clear="form.clearErrors('password')"
             />
 
-            <button
-                type="submit"
-                class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-                :disabled="form.processing"
-            >
-                Inloggen
-            </button>
+            <div class="flex items-center justify-between">
+                <button
+                    type="submit"
+                    class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                    :disabled="form.processing"
+                >
+                    Inloggen
+                </button>
+
+                <Link
+                    :href="route('contact.index')"
+                    class="rounded border border-blue-600 px-4 py-2 text-blue-600 hover:border-blue-700 hover:text-blue-700"
+                >
+                    Ga naar Contact Formulier
+                </Link>
+            </div>
         </form>
     </div>
 </template>
