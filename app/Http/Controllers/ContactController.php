@@ -27,6 +27,6 @@ class ContactController extends Controller
 
         Message::create($fields);
 
-        return back()->with('success', 'Bedankt! Je bericht is verzonden.');
+        return back()->with('message', 'Bedankt! Je bericht is verzonden.');
     }
 }
